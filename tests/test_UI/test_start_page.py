@@ -44,3 +44,18 @@ def test_click_windsurfing_button(page: Page):
     start_page.click_windsurfing()
     expect(page).to_have_url("https://fakestore.testelka.pl/product-category/windsurfing/")
 
+def test_wyszukaj_button(page: Page):
+    
+    start_page = StartPage(page)
+    page.goto("https://fakestore.testelka.pl/")
+    start_page.click_wyszukaj()
+    expect(page.get_by_role("searchbox", name="Szukaj:")).to_be_focused()
+
+def test_wyszukaj_windsurfing(page: Page):
+    
+    start_page = StartPage(page)
+    page.goto("https://fakestore.testelka.pl/")
+    start_page.click_wyszukaj()
+    start_page.wyszukaj.fill("windsurfing")
+    start_page.wyszukaj.press("Enter")
+    expect(page).to_have_url("https://fakestore.testelka.pl/?s=windsurfing&post_type=product")
