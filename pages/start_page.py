@@ -12,7 +12,7 @@ class StartPage:
             self.koszyk = page.locator("#menu-item-200").get_by_role("link", name="Koszyk")
             self.moje_konto = page.locator("#menu-item-201").get_by_role("link", name="Moje konto")
             self.windsurfing = page.get_by_role("link", name="Przejdź do kategorii produktu Windsurfing")
-           
+            self.wyszukaj = page.get_by_role("searchbox", name="Szukaj:")
 
         def click_strona_glowna(self):
             self.strona_glowna.click()
@@ -31,8 +31,8 @@ class StartPage:
 
         def click_windsurfing(self):
             self.windsurfing.click()
-        
 
-
-
+        def click_wyszukaj(self):
+            self.wyszukaj.click()
+            
 
