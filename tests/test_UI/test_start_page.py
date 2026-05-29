@@ -17,7 +17,7 @@ def start_page(page: Page):
 def test_visibility_of_main_buttons(page: Page, element_name, start_page: StartPage):
     
     page.goto("https://fakestore.testelka.pl/")
-    element = getattr(start_page, element_name)
+    element = getattr(start_page, f"get_{element_name}")()
     assert element.is_visible() and element.is_enabled(), f"{element_name} is not visible or enabled on the page."
 
 def test_click_zamowienie_button(page: Page, start_page: StartPage):
