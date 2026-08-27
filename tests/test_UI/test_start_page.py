@@ -16,43 +16,43 @@ def start_page(page: Page):
 
 def test_visibility_of_main_buttons(page: Page, element_name, start_page: StartPage):
     
-    page.goto("https://fakestore.testelka.pl/")
+    page.goto(start_page.startpage_url)
     element = getattr(start_page, f"get_{element_name}")()
     assert element.is_visible() and element.is_enabled(), f"{element_name} is not visible or enabled on the page."
 
 def test_click_zamowienie_button(page: Page, start_page: StartPage):
     
-    page.goto("https://fakestore.testelka.pl/")
+    page.goto(start_page.startpage_url)
     start_page.click_zamowienie()
     expect(page).to_have_url("https://fakestore.testelka.pl/koszyk/")
 
 def test_click_koszyk_button(page: Page, start_page: StartPage):
     
-    page.goto("https://fakestore.testelka.pl/")
+    page.goto(start_page.startpage_url)
     start_page.click_koszyk()
     expect(page).to_have_url("https://fakestore.testelka.pl/koszyk/")
 
 def test_click_moje_konto_button(page: Page, start_page: StartPage):
     
-    page.goto("https://fakestore.testelka.pl/")
+    page.goto(start_page.startpage_url)
     start_page.click_moje_konto()
     expect(page).to_have_url("https://fakestore.testelka.pl/moje-konto/")
 
 def test_click_windsurfing_button(page: Page, start_page: StartPage):
     
-    page.goto("https://fakestore.testelka.pl/")
+    page.goto(start_page.startpage_url)
     start_page.click_windsurfing()
     expect(page).to_have_url("https://fakestore.testelka.pl/product-category/windsurfing/")
 
 def test_wyszukaj_button(page: Page, start_page: StartPage):
     
-    page.goto("https://fakestore.testelka.pl/")
+    page.goto(start_page.startpage_url)
     start_page.click_wyszukaj()
     expect(page.get_by_role("searchbox", name="Szukaj:")).to_be_focused()
 
 def test_wyszukaj_windsurfing(page: Page, start_page: StartPage):
 
-    page.goto("https://fakestore.testelka.pl/")
+    page.goto(start_page.startpage_url)
     start_page.click_wyszukaj()
     start_page.wyszukaj.fill("windsurfing")
     start_page.wyszukaj.press("Enter")

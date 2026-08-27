@@ -7,6 +7,8 @@ class StartPage:
         def __init__(self, page: Page):
             self.page = page
         
+        startpage_url = "https://fakestore.testelka.pl/"
+
         def get_strona_glowna(self):
             self.strona_glowna = self.page.locator("#menu-item-197").get_by_role("link", name="Strona główna")
             return self.strona_glowna
@@ -34,6 +36,9 @@ class StartPage:
         def get_wyszukaj(self):
             self.wyszukaj = self.page.get_by_role("searchbox", name="Szukaj:")
             return self.wyszukaj
+        
+        def add_to_cart(self):
+            self.page.get_by_role("region", name="Najnowsze Produkty").get_by_label("Dodaj do koszyka: „Windsurfing w Lanzarote (Costa Teguise)”").click()
 
         def click_strona_glowna(self):
             self.get_strona_glowna().click()
