@@ -6,7 +6,7 @@ from pages.koszyk import Koszyk
 @pytest.fixture
 def koszyk(page: Page):
     return Koszyk(page)
-# sad as 
+
 def test_pusty_koszyk(page: Page, koszyk: Koszyk):
 
     page.goto("https://fakestore.testelka.pl/koszyk/")
