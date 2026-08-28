@@ -39,6 +39,4 @@ jobs:
       
       - name: Run tests paraller
         run: pytest -n 4
-        
-      - name: Run UI tests
-        run: pytest --disable-warnings
+

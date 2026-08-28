@@ -9,7 +9,7 @@ def koszyk(page: Page):
 
 def test_pusty_koszyk(page: Page, koszyk: Koszyk):
 
-   # page.goto("https://fakestore.testelka.pl/koszyk/")
+    page.goto("https://fakestore.testelka.pl/koszyk/")
     expect(koszyk.get_pusty_koszyk()).to_be_visible()
 
 def test_windsurfing_link(page: Page, koszyk: Koszyk):
