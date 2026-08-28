@@ -32,9 +32,13 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           python -m pip install pytest pytest-playwright pytest-html
-
+          python -m pip install pytest-xdist
+      
       - name: Install Playwright browser
         run: python -m playwright install --with-deps chromium
-
+      
+      - name: Run tests paraller
+        run: pytest -n 4
+        
       - name: Run UI tests
         run: pytest --disable-warnings
