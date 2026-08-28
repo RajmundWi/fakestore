@@ -8,7 +8,7 @@ on:
   pull_request:
 
 jobs:
-  test:
+  test_ui:
     runs-on: ubuntu-latest
 
     strategy:
