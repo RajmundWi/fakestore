@@ -38,5 +38,18 @@ jobs:
         run: python -m playwright install --with-deps chromium
       
       - name: Run tests paraller
-        run: pytest -n 4
+        run: |
+         mkdir -p screenshots
+         pytest -n 4 --html=report.html --self-contained-html
+      
+      - name: Upload test report artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: playwright-html-report
+          path: report.html
 
+      - name: Upload screenshots artifact
+        uses: actions/upload-artifact@v3
+        with:
+         name: screenshots
+         path: screenshots/
